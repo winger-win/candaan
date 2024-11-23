@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapan SEMPRO?</title>
+  <style>
+     a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    color: inherit; /* Warna mengikuti elemen di dalamnya */
+  }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Video Background */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    /* Welcome Screen */
+    .welcome {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.8); /* Transparansi */
+    }
+    .welcome img {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Preloading Screen */
+    .preload {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Main Content */
+    .container {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+      color: white;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    img {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    #slider {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap; /* Untuk memastikan elemen slider rapat di layar kecil */
+    }
+    #slider p {
+      background: rgba(255, 255, 255, 0.8);
+      color: black;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    #slider p:hover {
+      transform: scale(1.1);
+    }
+
+    #fotoku {
+      border: 5px solid #636363;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 200px;
+      height: 200px;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .welcome img {
+        width: 120px;
+        height: 120px;
+      }
+      #fotoku {
+        width: 150px;
+        height: 150px;
+      }
+      #slider p {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .welcome img {
+        width: 100px;
+        height: 100px;
+      }
+      #fotoku {
+        width: 120px;
+        height: 120px;
+      }
+      #slider p {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Video Background -->
+  <video class="video-bg" autoplay loop muted>
+    <source src="Distant Particles Loop - Motion Graphics Animated Background Copyright Free.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Welcome Screen -->
+  <div class="welcome">
+    <h2 style="color: white;">Klik Aku Dulu sayang🙈</h2>
+    <img src="af5fd93b737487d3f48712895832cb9a.jpg" alt="Love Icon" id="loveIcon">
+  </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="Love Me Like You Do India Viral India Cover Lagu Love Me Like You Do Tiktok Viral 2021.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Preloading Screen -->
+  <div class="preload">
+    <p>Loading dulu . . .</p>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <div id="love">🐒</div>
+    <h2>Hai Kamu yang belum SEMPRO!!!</h2>
+    <h3>Kasihan belum sempro awoawok🤣</h3>
+    
+    <img src="cc29a7c1afc8d0015448b03f98158052.jpg" alt="Profile Picture" id="fotoku">
+    <h3>wkwkwkw...sebagai permohonan maaf Silahkan pilih Hadiah dibawah ini😁</h3>
+    <div id="slider">
+        <a href="pilihan1.html"><p> HADIAH 1</p></a>
+        <a href="pilihan2.html"><p> HADIAH 2</p></a>
+    </div>
+  </div>
+
+  <script>
+    const loveIcon = document.getElementById("loveIcon");
+    const welcomeScreen = document.querySelector(".welcome");
+    const preloadScreen = document.querySelector(".preload");
+    const mainContent = document.querySelector(".container");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+
+    // Ketika ikon love diklik
+    loveIcon.addEventListener("click", () => {
+      // Memulai pemutaran musik
+      backgroundMusic.play();
+
+      // Sembunyikan layar welcome
+      welcomeScreen.style.display = "none";
+
+      // Tampilkan layar loading
+      preloadScreen.style.display = "flex";
+
+      // Setelah 2 detik, tampilkan konten utama
+      setTimeout(() => {
+        preloadScreen.style.display = "none";
+        mainContent.style.display = "block";
+      }, 2000); // 2 detik
+    });
+
+    // Pastikan layar welcome ditampilkan pertama kali
+    document.addEventListener("DOMContentLoaded", () => {
+      welcomeScreen.style.display = "flex";
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PILIHAN 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+      transition: background-color 1s ease;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    audio {
+      margin-top: 20px;
+      display: none; /* Sembunyikan elemen audio */
+    }
+
+    .content {
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .click-to-play {
+      font-size: 20px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .click-to-play:hover {
+      background-color: #3700b3;
+    }
+
+    .gift-message {
+      font-size: 22px;
+      color: #009688;
+      margin-top: 20px;
+      display: none; /* Sembunyikan pesan kado awalnya */
+    }
+
+    .instagram-button {
+      font-size: 20px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none; /* Sembunyikan tombol IG */
+    }
+
+    .instagram-button:hover {
+      background-color: #00796b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <img src="monyet.jpg" alt="Gambar" id="image">
+    <p>wkwkwkwk😂...ini cuma candaan🙏</p>
+    <button class="click-to-play" id="playButton">Klik untuk Putar Musik</button>
+    <p class="gift-message" id="giftMessage">Klik untuk follow🤣</p> <!-- Pesan kado -->
+    <button class="instagram-button" id="instagramButton" onclick="window.location.href='https://www.instagram.com/winger__17';">Kunjungi Instagram</button> <!-- Tombol IG -->
+  </div>
+
+  <!-- Pemutar Musik -->
+  <audio id="backgroundMusic" loop>
+    <source src="Monkey Noises SFX.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Mendapatkan elemen audio, tombol, dan pesan
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const playButton = document.getElementById('playButton');
+    const giftMessage = document.getElementById('giftMessage');
+    const instagramButton = document.getElementById('instagramButton');
+
+    // Fungsi untuk memulai musik saat tombol diklik
+    playButton.addEventListener('click', () => {
+      // Memulai pemutaran musik
+      backgroundMusic.play().catch((error) => {
+        console.error("Error saat memutar musik:", error);
+      });
+
+      // Menyembunyikan tombol setelah diklik
+      playButton.style.display = 'none';
+
+      // Menampilkan pesan kado setelah tombol diklik
+      giftMessage.style.display = 'block';
+
+      // Menambahkan latar belakang biru setelah musik diputar
+      document.body.style.backgroundColor = "#e0f7fa";
+
+      // Menampilkan tombol Instagram setelah musik diputar
+      instagramButton.style.display = 'inline-block';
+    });
+  </script>
+
+</body>
+</html>
